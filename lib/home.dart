@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week17/contect.dart';
+
+import 'contact.dart';
+import 'counter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -7,33 +9,40 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Leena App"),
+        title: const Text("Lena App"),
       ),
-      body: const Center(child: Text("ระวังตัวไว้ให้ดี")),
+      body: const Center(
+        child: Text("ระวังตัวไว้ให้ดี"),
+      ),
       drawer: Drawer(
         child: ListView(
           children: [
             const UserAccountsDrawerHeader(
               accountName: Text("LEENA"),
-              accountEmail: Text("Leena@gmail.com"),
+              accountEmail: Text("leena@gmail.com"),
               currentAccountPicture: CircleAvatar(
                 child: Icon(Icons.android),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home),
+              leading: const Icon(Icons.home,color: Colors.orangeAccent),
               title: const Text("Home"),
               onTap: () {
-                //debugpPint();
-                Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
               },
             ),
-             ListTile(
-              leading: const Icon(Icons.contact_page,color: Colors.yellow,),
+            ListTile(
+              leading: const Icon(Icons.contact_phone,color: Colors.orangeAccent),
               title: const Text("Contact"),
               onTap: () {
-                //debugpPint();
-                Navigator.push(context,MaterialPageRoute(builder: (context) => ContactPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactPage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.developer_board,color: Colors.orangeAccent),
+              title: const Text("Counter"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CounterPage()));
               },
             ),
           ],
@@ -43,7 +52,7 @@ class HomePage extends StatelessWidget {
         onPressed: () {
           debugPrint("Hello");
         },
-        child: const Icon(Icons.add_business),
+        child: const Icon(Icons.add),
       ),
     );
   }
